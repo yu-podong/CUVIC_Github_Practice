@@ -1,25 +1,16 @@
 #include <stdio.h>
 
-void selectionsort(int *, int);
-void bubblesort(int *, int);
-void insertionsort(int *, int);
 
-int main() {
-	int n;
-	int *arr = null;
 	scanf("%d", &n);
 
-	// ÀÔ·ÂÇÒ ¼öÀÇ °³¼ö¸¸Å­ µ¿Àû ÇÒ´ç
+	// ì…ë ¥í•  ìˆ˜ì˜ ê°œìˆ˜ë§Œí¼ ë™ì  í• ë‹¹
 	arr = (int *)malloc(sizeof(int) * n);
 
-	// Á¤·ÄÇÒ ¼ıÀÚ¸¦ ÀÔ·Â
+	// ì •ë ¬í•  ìˆ«ìë¥¼ ì…ë ¥
 	for (int i = 0; i < n; i++) {
 		scanf("%d", &arr[i]);
 	}
 
-	selectionsort(arr, n);
-	/*bubblesort(arr, n);
-	insertionsort(arr, n);*/
 
 	for (int i = 0; i < n; i++) {
 		printf("%d\n", arr[i]);
@@ -28,31 +19,14 @@ int main() {
 	return 0;
 }
 
-// selection sort
-void selectionsort(int* arr, int n) {
-	int minindex = 0, temp = 0;
 
-	// Á¤·ÄµÈ ¿ø¼Ò µÚ¿¡ ÀÖ´Â ¿ø¼Ò¸¦ ¼±ÅÃ
-	for (int i = 0; i < n-1; i++) {
-		minindex = i;
-		// ÇØ´ç ¿ø¼Ò µÚ¿¡ ÀÖ´Â ¿ø¼Ò Áß ÃÖ¼Ú°ª ¼±ÅÃ
-		for (int j = i + 1; j < n; j++) {
-			if (arr[minindex] > arr[j]) {
-				minindex = j;
-			}
-		}
-		// ÇØ´ç ¿ø¼Ò¿Í ÃÖ¼Ú°ªÀ» swap
-		temp = arr[minindex];
-		arr[minindex] = arr[i];
 		arr[i] = temp;
 	}
 }
 
-// bubble sort
-void bubblesort(int *arr, int n) {
 	int temp = 0;
 
-	// ¼­·Î ÀÎÁ¢ÇÑ ¿ø¼ÒµéÀ» ºñ±³
+	// ì„œë¡œ ì¸ì ‘í•œ ì›ì†Œë“¤ì„ ë¹„êµ
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n - (i+1); j++) {
 			if (arr[j] > arr[j + 1]) {
@@ -64,20 +38,6 @@ void bubblesort(int *arr, int n) {
 	}
 }
 
-// insertion sort
-void insertionsort(int *arr, int n) {
-	int temp = 0, preindex = 0;
-	// µÎ¹øÂ° ¿ø¼ÒºÎÅÍ ±âÁØÀ¸·Î ÇÏ¿©
-	for (int i = 1; i < n; i++) {
-		temp = arr[i];
-		preindex = i - 1;
-		// ±âÁØ ¿ø¼Òº¸´Ù °ªÀÌ Å« Ä£±¸µéÀ» ÇÑ Ä­¾¿ µÚ·Î º¸³» ±âÁØ ¿ø¼Ò°¡ µé¾î°¥ ÀÚ¸® ¸¶·Ã
-		while (preindex >= 0 && arr[preindex] > arr[i]) {
-			arr[preindex + 1] = arr[preindex];
-			preindex--;
-		}
-		// ¸¶·ÃÇÑ ÀÚ¸®¿¡ ±âÁØ ¿ø¼Ò »ğÀÔ
-		arr[preindex + 1] = temp;
-	}
+
 }
 
