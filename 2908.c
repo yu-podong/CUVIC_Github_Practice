@@ -1,28 +1,32 @@
 #include <stdio.h>
 
-int main() {
-	int num[2];
-	int parse1, parse2, parse3;
+int main()
+{
+  int num[2];
+  int parse1, parse2, parse3;
 
-	scanf("%d %d", &num[0], &num[1]);
+  scanf("%d %d", &num[0], &num[1]);
 
-	// ÀÔ·ÂÇÑ ¼ıÀÚ¸¦ °¢ ÀÚ¸´¼ö º°·Î parsing
-	for (int i = 0; i < 2; i++) {
-		parse1 = num[i] / 100;	// ¹éÀÇ ÀÚ¸®
-		parse2 = (num[i] / 10) % 10;	// ½ÊÀÇ ÀÚ¸®
-		parse3 = (num[i] % 100) % 10;	// ÀÏÀÇ ÀÚ¸®
+  // ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ parsing
+  for (int i = 0; i < 2; i++)
+  {
+    parse1 = num[i] / 100;        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¸ï¿½
+    parse2 = (num[i] / 10) % 10;  // ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¸ï¿½
+    parse3 = (num[i] % 100) % 10; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¸ï¿½
 
-		// µÚÁıÀº ¼ıÀÚ ¿Ï¼º
-		num[i] = (parse3 * 100) + (parse2 * 10) + parse1;
-	}
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¼ï¿½
+    num[i] = (parse3 * 100) + (parse2 * 10) + parse1;
+  }
 
-	// µÚÁıÀº ¼ıÀÚ¸¦ ÀÌ¿ëÇÏ¿© »ó¼öÀÇ ´ä È¹µæ
-	if (num[0] > num[1]) {
-		printf("%d", num[0]);
-	}
-	else {
-		printf("%d", num[1]);
-	}
-
-	return 0;
+  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È¹ï¿½ï¿½
+  if (num[0] > num[1])
+  {
+    printf("%d", num[0]);
+  }
+  else
+  {
+    printf("%d", num[1]);
+  }
+  printf("\n");
+  return 0;
 }
