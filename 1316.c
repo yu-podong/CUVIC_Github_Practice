@@ -14,7 +14,7 @@ int main() {
 
 		for (int index = 0; index < strlen(str)-1; index++) {
 			// str[i]와 str[i+1]이 다를 경우
-			if (str[index] != str[index + 1]) {
+			if (str[index] != str[index + 1]) {                         
 				// str[i] 이후에 str[i]가 있는지 확인
 				for (int j = index + 1; j < strlen(str); j++) {
 					// 존재한다면, isGrounpWord = 0 후 break
