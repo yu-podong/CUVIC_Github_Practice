@@ -1,83 +1,96 @@
-//#include <stdio.h>
-//
-//void selectionSort(int *, int);
-//void bubbleSort(int *, int);
-//void insertionSort(int *, int);
-//
-//int main() {
-//	int n;
-//	int *arr = NULL;
-//	scanf("%d", &n);
-//
-//	// ÀÔ·ÂÇÒ ¼öÀÇ °³¼ö¸¸Å­ µ¿Àû ÇÒ´ç
-//	arr = (int *)malloc(sizeof(int) * n);
-//
-//	// Á¤·ÄÇÒ ¼ýÀÚ¸¦ ÀÔ·Â
-//	for (int i = 0; i < n; i++) {
-//		scanf("%d", &arr[i]);
-//	}
-//
-//	selectionSort(arr, n);
-//	/*bubbleSort(arr, n);
-//	insertionSort(arr, n);*/
-//
-//	for (int i = 0; i < n; i++) {
-//		printf("%d\n", arr[i]);
-//	}
-//
-//	return 0;
-//}
-//
-//// Selection Sort
-//void selectionSort(int* arr, int n) {
-//	int minIndex = 0, temp = 0;
-//
-//	// Á¤·ÄµÈ ¿ø¼Ò µÚ¿¡ ÀÖ´Â ¿ø¼Ò¸¦ ¼±ÅÃ
-//	for (int i = 0; i < n-1; i++) {
-//		minIndex = i;
-//		// ÇØ´ç ¿ø¼Ò µÚ¿¡ ÀÖ´Â ¿ø¼Ò Áß ÃÖ¼Ú°ª ¼±ÅÃ
-//		for (int j = i + 1; j < n; j++) {
-//			if (arr[minIndex] > arr[j]) {
-//				minIndex = j;
-//			}
-//		}
-//		// ÇØ´ç ¿ø¼Ò¿Í ÃÖ¼Ú°ªÀ» swap
-//		temp = arr[minIndex];
-//		arr[minIndex] = arr[i];
-//		arr[i] = temp;
-//	}
-//}
-//
-//// Bubble Sort
-//void bubbleSort(int *arr, int n) {
-//	int temp = 0;
-//
-//	// ¼­·Î ÀÎÁ¢ÇÑ ¿ø¼ÒµéÀ» ºñ±³
-//	for (int i = 0; i < n; i++) {
-//		for (int j = 0; j < n - (i+1); j++) {
-//			if (arr[j] > arr[j + 1]) {
-//				temp = arr[j];
-//				arr[j] = arr[j+1];
-//				arr[j + 1] = temp;
-//			}
-//		}
-//	}
-//}
-//
-//// Insertion Sort
-//void insertionSort(int *arr, int n) {
-//	int temp = 0, preIndex = 0;
-//	// µÎ¹øÂ° ¿ø¼ÒºÎÅÍ ±âÁØÀ¸·Î ÇÏ¿©
-//	for (int i = 1; i < n; i++) {
-//		temp = arr[i];
-//		preIndex = i - 1;
-//		// ±âÁØ ¿ø¼Òº¸´Ù °ªÀÌ Å« Ä£±¸µéÀ» ÇÑ Ä­¾¿ µÚ·Î º¸³» ±âÁØ ¿ø¼Ò°¡ µé¾î°¥ ÀÚ¸® ¸¶·Ã
-//		while (preIndex >= 0 && arr[preIndex] > arr[i]) {
-//			arr[preIndex + 1] = arr[preIndex];
-//			preIndex--;
-//		}
-//		// ¸¶·ÃÇÑ ÀÚ¸®¿¡ ±âÁØ ¿ø¼Ò »ðÀÔ
-//		arr[preIndex + 1] = temp;
-//	}
-//}
-//
+#include <stdio.h>
+
+void selectionSort(int *, int);
+void bubbleSort(int *, int);
+void insertionSort(int *, int);
+
+int main()
+{
+  int n;
+  int *arr = NULL;
+  scanf("%d", &n);
+
+  // ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½
+  arr = (int *)malloc(sizeof(int) * n);
+
+  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Ô·ï¿½
+  for (int i = 0; i < n; i++)
+  {
+    scanf("%d", &arr[i]);
+  }
+
+  selectionSort(arr, n);
+  /*bubbleSort(arr, n);
+	insertionSort(arr, n);*/
+
+  for (int i = 0; i < n; i++)
+  {
+    printf("%d\n", arr[i]);
+  }
+
+  return 0;
+}
+
+// Selection Sort
+void selectionSort(int *arr, int n)
+{
+  int minIndex = 0, temp = 0;
+
+  // ï¿½ï¿½ï¿½Äµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+  for (int i = 0; i < n - 1; i++)
+  {
+    minIndex = i;
+    // ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö¼Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½
+    for (int j = i + 1; j < n; j++)
+    {
+      if (arr[minIndex] > arr[j])
+      {
+        minIndex = j;
+      }
+    }
+    // ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ò¿ï¿½ ï¿½Ö¼Ú°ï¿½ï¿½ï¿½ swap
+    temp = arr[minIndex];
+    arr[minIndex] = arr[i];
+    arr[i] = temp;
+  }
+}
+
+// Bubble Sort
+void bubbleSort(int *arr, int n)
+{
+  int temp = 0;
+
+  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ ï¿½ï¿½
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < n - (i + 1); j++)
+    {
+      if (arr[j] > arr[j + 1])
+      {
+        temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+}
+
+// Insertion Sort
+void insertionSort(int *arr, int n)
+{
+  int temp = 0, preIndex = 0;
+  // ï¿½Î¹ï¿½Â° ï¿½ï¿½ï¿½Òºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½
+  for (int i = 1; i < n; i++)
+  {
+    temp = arr[i];
+    preIndex = i - 1;
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Òºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å« Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä­ï¿½ï¿½ ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½ï¿½î°¥ ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+    while (preIndex >= 0 && arr[preIndex] > arr[i])
+    {
+      arr[preIndex + 1] = arr[preIndex];
+      preIndex--;
+    }
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    arr[preIndex + 1] = temp;
+  }
+}
